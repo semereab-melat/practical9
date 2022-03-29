@@ -3,14 +3,10 @@
 <h3>Open Ticket List</h3>
 
 <div class="mt-4 mb-4">
-@if (User.IsInRole("admin") || User.IsInRole("manager"))
-   {
-       <a  asp-action="Create" class="btn btn-primary btn-sm">
+   <a  <a  asp-action="Create" class="btn btn-primary btn-sm">
       <i class="bi bi-plus"></i> Create Ticket
    </a>
-   }
-   </div>
- 
+</div>
 
 <table class="table">
    <thead>

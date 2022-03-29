@@ -1,3 +1,5 @@
+using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -54,25 +56,15 @@ namespace SMS.Web.Controllers
         public IActionResult Register(UserRegisterViewModel m)
         {
             // check if email address is already in use - replaced by use of remote validator in UserRegisterViewModel
-
-            var exists = _svc.GetUserByEmail(m.Email);
-            if (exists != null)
-            {
-                //add manual validation error
-                ModelState.AddModelError(nameof(m.Email), "The Email Adress Exist");
-            }
+            
 
             // check validation
-            if (ModelState.IsValid)
-            {
-                //register user
-                _svc.Register(m.Name, m.Email, m.Password, m.Role);
-                Alert("User Registered successfully!", AlertType.success);
+            
 
-                // registration successful now alert and redirect to login page
-                 return RedirectToAction(nameof(Login));
-            }
-            return View(m);
+            // register user
+           
+            // registration successful now alert and redirect to login page
+            return RedirectToAction(nameof(Login));
         }
 
         [HttpPost]
