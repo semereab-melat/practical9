@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text;
 using System.Collections.Generic;
+using SMS.Data.Models;
 
 namespace SMS.Data.Services
 {
@@ -51,6 +52,11 @@ namespace SMS.Data.Services
             svc.AddStudentToModule(s4.Id, m1.Id, 71);
             svc.AddStudentToModule(s4.Id, m2.Id, 79);
             svc.AddStudentToModule(s4.Id, m3.Id, 69);
+
+            //add default users
+            svc.Register("Administrator", "admin@mail.com", "admin", Role.admin);
+            svc.Register("Manager", "manager@mail.com", "manager", Role.manager);
+            svc.Register("Guest", "guest@mail.com", "guest", Role.guest);
         }
     }
 }
